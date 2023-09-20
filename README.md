@@ -1,2 +1,15 @@
 # ipl-interpreter
-interpreter of that executes processes and executes commands of a made up programming language, ipl
+interpreter that executes processes and executes commands of a made up programming language, ipl
+All input files must have .ipl file extensions and follow the syntax rules of the ipl programming language
+
+Γενική υλοποίηση:
+Ο διερμηνέας, αφού ανοίξει το αρχειο, διαβάζει μία μία τις γραμμές του ipl αρχείου και διαχωρίζει τις λέξεις τοποθετώντας τα substrings σε tokens
+
+Τα βασικά κομμάτια κώδικα της κάθε εντολής ipl βρίσκονται στο αρχείο ipli.c. Οι συναρτήσεις που αφορούν σε λίστες βρίσκονται στο αρχείο list.c το οποίο συνοδεύεται από
+το αντίστοιχο header με τις κατάλληλες δηλώσεις. Οποιαδήποτε άλλη συνάρτηση που καλείται από τη main βρίσκεται στο functions.c με το αντίστοιχο header.
+
+Εκτέλεση if/else και while:
+Κάθε εντολή while (αντιστοιχα if) περιέχει κάποιες πληροφορίες απαραίτητες για τη διάκριση των εμφωλεύσεων, την κατάσταση της συνθήκης και την πραγματοποίηση των επαναλήψεων.
+Αυτές αποθηκεύονται σε μια δομή blocknode η οποία τοποθετείται στην κεφαλη μιας λιστας while_list (αντιστοιχα if_list) και εχει μορφη LIFO. Με αυτο τον τροπο εχουν 
+προτεραιοτητα οι πιο βαθιες εμφωλευσεις. Οι λιστες αυτες ελεγχονται απο τις συναρτησεις push και pop.
+Ο διερμηνέας δεν μπορεί να διακρίνει λάθη ως προς την στοίχηση των εντολών εντός των while και if/else blocks.
